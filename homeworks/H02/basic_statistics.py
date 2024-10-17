@@ -1,6 +1,7 @@
 import numpy as np
 import pandas as pd
 import scipy
+from scipy.stats import pearsonr, spearmanr, ttest_ind, shapiro, levene
 
 
 def get_float64_column_names(df: pd.DataFrame) -> list[str]:
@@ -18,6 +19,8 @@ def get_float64_column_names(df: pd.DataFrame) -> list[str]:
     Returns:
         List of strings with the float64 column names.
     """
+
+    return df.select_dtypes(include=['float64']).columns.tolist()
     
     raise NotImplementedError("You need to implement this function.")
 
@@ -38,6 +41,8 @@ def get_missing_value_indices(df: pd.DataFrame, column: str) -> list[int]:
         Indices of missing values, as a list of ints.
     """
 
+    return df[df[column].isna()].index.tolist()
+
     raise NotImplementedError("You need to implement this function.")
 
 def drop_missing_values(df: pd.DataFrame) -> pd.DataFrame:
@@ -52,6 +57,7 @@ def drop_missing_values(df: pd.DataFrame) -> pd.DataFrame:
     Returns:
         DataFrame with missing values dropped.
     """
+    return df.dropna()
 
     raise NotImplementedError("You need to implement this function.")
 
@@ -67,15 +73,10 @@ def fill_float64_cols_with_random_sample(df: pd.DataFrame, random_state=2024) ->
     """
     float_columns = get_float64_column_names(df)
     for column in float_columns:
-        # Get indices of missing values.
         missing_indices = get_missing_value_indices(df, column)
-
-        # Get random sample from the column.
         random_sample = df[column].dropna().sample(len(missing_indices),
                                                    replace=True,
                                                    random_state=random_state)
-        
-        # Fill missing values with randomly sampled values.
         df.loc[missing_indices, column] = random_sample.values
 
     return df
@@ -90,16 +91,10 @@ def fill_float64_cols_with_mean(df: pd.DataFrame) -> pd.DataFrame:
         DataFrame with missing values filled with the mean of the column.
     """
     float_columns = get_float64_column_names(df)
-    for column in float_columns:
-        
-        # Get indices of missing values.
+    for column in float_columns:        
         missing_indices = get_missing_value_indices(df, column)
-
-        # Get the mean of the column.
         mean = df[column].mean(skipna=True)
         mean_values = [mean] * len(missing_indices)
-
-        # Fill missing values with the mean.
         df.loc[missing_indices, column] = mean_values
 
     return df
@@ -117,6 +112,15 @@ def calculate_covariance_numpy(x: np.array, y: np.array) -> float:
     Returns:
         Covariance between x and y.
     """
+    mean_x = np.mean(x)
+    mean_y = np.mean(y)
+
+    deviation_x = x - mean_x
+    deviation_y = y - mean_y
+
+    covariance = np.sum(deviation_x * deviation_y) / (len(x) - 1)
+
+    return covariance
 
     raise NotImplementedError("You need to implement this function.")
 
@@ -133,6 +137,20 @@ def calculate_pearson_correlation_numpy(x: np.array, y: np.array) -> float:
     Returns:
         Pearson's correlation coefficient between x and y.
     """
+    mean_x = np.mean(x)
+    mean_y = np.mean(y)
+
+    deviation_x = x - mean_x
+    deviation_y = y - mean_y
+
+    covariance = np.sum(deviation_x * deviation_y) / (len(x) - 1)
+
+    std_x = np.sqrt(np.sum(deviation_x ** 2) / (len(x) - 1))
+    std_y = np.sqrt(np.sum(deviation_y ** 2) / (len(y) - 1))
+
+    pearson_corr = covariance / (std_x * std_y)
+
+    return pearson_corr
 
     raise NotImplementedError("You need to implement this function.")
 
@@ -149,6 +167,9 @@ def calculate_pearson_correlation_scipy(x: np.array, y: np.array) -> float:
     Returns:
         Pearson's correlation coefficient between x and y.
     """
+    correlation_coefficient, _ = pearsonr(x, y)
+
+    return correlation_coefficient
 
     raise NotImplementedError("You need to implement this function.")
 
@@ -166,6 +187,9 @@ def calculate_spearman_correlation_scipy(x: np.array, y: np.array) -> float:
         Spearman's correlation coefficient between x and y.
     
     """
+    spearman_coefficient, _ = spearmanr(x, y)
+
+    return spearman_coefficient
     
     raise NotImplementedError("You need to implement this function.")
 
@@ -182,6 +206,9 @@ def perform_independent_t_test(x: np.array, y: np.array) -> tuple[float, float]:
     Returns:
         Test statistic and p-value (float, float) from the independent t-test.
     """
+    t_statistic, p_value = ttest_ind(x, y)
+
+    return t_statistic, p_value
     
     raise NotImplementedError("You need to implement this function.")
 
@@ -197,6 +224,9 @@ def check_normality(x: np.array) -> tuple[float, float]:
     Returns:
         Test statistic and p-value (float, float)from the Shapiro-Wilk test.
     """
+    test_statistic, p_value = shapiro(x)
+
+    return test_statistic, p_value
 
     raise NotImplementedError("You need to implement this function.")
 
@@ -213,5 +243,8 @@ def check_variance_homogeneity(x: np.array, y: np.array) -> tuple[float, float]:
     Returns:
         Test statistic and p-value (float, float) from the Levene's test.
     """
+    test_statistic, p_value = levene(x, y)
+
+    return test_statistic, p_value
 
     raise NotImplementedError("You need to implement this function.")
