@@ -1,6 +1,6 @@
 # Introduction to Data Science Pipelines (CS 326)
 
-[[Github Repository]](https://github.com/drc-cs/fall2024-cs326/)
+[[Github Repository]](https://github.com/drc-cs/fall24-cs326/)
 
 This course aims to cover data science theory and tools for obtaining, cleaning, visualizing, modeling, and interpreting data. Most of the tools introduced in this course will be based on Python, although the theory can be applied to any programming language. Ethical data science will be consistently reinforced. As an outcome of this course, students should be able to independently derive insights from real-life datasets.
 
@@ -13,13 +13,13 @@ This schedule is tentative and may change as the course progresses. Click on lin
 | Lecture | Date | Topic | Homework Due | Project Milestone Due |
 | --- | --- | --- | --- | --- |
 | 1 | 09.24.2024 | [Course Overview](https://drc-cs.github.io/FALL24-CS326/lectures/L01_overview/#/) | | |
-| 2 | 09.26.2024 | Data Collection and Structure | | |
-| 3 | 10.01.2024 | Exploratory Data Analysis | [H.01](https://github.com/drc-cs/FALL24-CS326/tree/main/homeworks/H01) | |
-| 4 | 10.03.2024 | Correlation, Association, and Simpson's Paradox | | |
-| 5 | 10.08.2024 | A/B Testing and Statistical Inference | | P.01 |
-| 6 | 10.10.2024 | Data Preprocessing | | |
-| 7 | 10.15.2024 | Supervised Machine Learning I <br> *KNN / Logistic Regression* | H.02 | |
-| 8 | 10.17.2024 | Supervised Machine Learning II <br>  *ROC-AUC / K-Fold / Multi-Class* | | |
+| 2 | 09.26.2024 | [Data Collection and Structure](https://drc-cs.github.io/FALL24-CS326/lectures/L02_data_sources/#/) | | |
+| 3 | 10.01.2024 | [Exploratory Data Analysis](https://drc-cs.github.io/FALL24-CS326/lectures/L03_eda/#/) | [H.01](https://github.com/drc-cs/FALL24-CS326/tree/main/homeworks/H01) | |
+| 4 | 10.03.2024 | [Correlation, Association, and Simpson's Paradox](https://drc-cs.github.io/FALL24-CS326/lectures/L04_correlation_association/#/) | | |
+| 5 | 10.08.2024 | [Hypothesis Testing](https://drc-cs.github.io/FALL24-CS326/lectures/L05_hypothesis_testing/#/) | | [P.01](https://canvas.northwestern.edu/courses/217294/assignments/1468710) |
+| 6 | 10.10.2024 | [Data Preprocessing](https://drc-cs.github.io/FALL24-CS326/lectures/L06_data_preprocessing/#/) | | |
+| 7 | 10.15.2024 | [Supervised Machine Learning I <br> *KNN / Logistic Regression*](https://drc-cs.github.io/FALL24-CS326/lectures/L07_supervised_machine_learning_i/#/) | [H.02](https://github.com/drc-cs/FALL24-CS326/tree/main/homeworks/H02) | |
+| 8 | 10.17.2024 | [Supervised Machine Learning II <br>  *ROC-AUC / K-Fold / Multi-Class*](https://drc-cs.github.io/FALL24-CS326/lectures/L08_supervised_machine_learning_ii/#/) | | |
 | 9 | 10.22.2024 | Supervised Machine Learning III <br> *Decision Trees / Ensembles* | | |
 | 10 | 10.24.2024 | Unsupervised Machine Learning | H.03 | |
 | 11 | 10.29.2024 | Recommendation Modeling | | |
@@ -117,13 +117,14 @@ Collective ambition and equal contribution is rewarded.
 
 There will be one quiz at the end of this course. The quiz will cover the theoretical and practical concepts covered in the lectures and homeworks. If you follow along with the lectures and homeworks, you will be well-prepared for the quiz.
 
+
 ------
 
 ## Academic Integrity [[link]](https://www.northwestern.edu/provost/policies-procedures/academic-integrity/index.html)
 
 Individual homeworks
 - Do not exchange code fragments on any assignments
-- Do not copy solutions from any source, including the web or previous CS 326 students
+- Do not copy solutions from any source, including the web or previous MSAI339 students
 - You cannot upload / sell your assignments to code sharing websites
 
 Group project
@@ -132,7 +133,7 @@ Group project
 
 ------
 
-## Accommodations
+## Accommodations [[link]](https://www.registrar.northwestern.edu/registration-graduation/northwestern-university-syllabus-standards.html#accessibility)
 
 Any student requesting accommodations related to a disability or other condition is required to register with AccessibleNU and provide professors with an accommodation notification from AccessibleNU, preferably within the first two weeks of class. 
 
@@ -140,7 +141,7 @@ All information will remain confidential.
 
 ------
 
-## Mental Health
+## Mental Health [[link]](https://www.registrar.northwestern.edu/registration-graduation/northwestern-university-syllabus-standards.html#wellness-and-health)
 
 If you are feeling distressed or overwhelmed, please reach out for help. Students can access confidential resources through the Counseling and Psychological Services (CAPS), Religious and Spiritual Life (RSL) and the Center for Awareness, Response and Education (CARE).
 
@@ -151,3 +152,9 @@ If you are feeling distressed or overwhelmed, please reach out for help. Student
 **Joshua D'Arcy (Instructor)**: joshua.darcy@northwestern.edu <br>
 **Lingzhi Wang (TA)**: LingzhiWang2025@u.northwestern.edu <br>
 **Nathan Mo (PM)**: nmf0887@ads.northwestern.edu
+
+-----
+
+## Office Hours
+
+Office hours are held in Mudd 3510 from 2:30 - 3:15PM on Tuesdays.
