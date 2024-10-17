@@ -118,7 +118,7 @@ def calculate_covariance_numpy(x: np.array, y: np.array) -> float:
     deviation_x = x - mean_x
     deviation_y = y - mean_y
 
-    covariance = np.sum(deviation_x * deviation_y) / (len(x) - 1)
+    covariance = np.sum(deviation_x * deviation_y) / len(x)
 
     return covariance
 
