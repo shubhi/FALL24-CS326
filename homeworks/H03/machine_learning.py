@@ -14,6 +14,10 @@ def binarize(labels: list[str]) -> np.array:
     Returns:
         np.array: The binarized labels.
     """
+
+    binary_labels = np.array(list(map(lambda x : 1 if x == 'Chinstrap' else 0, labels)))
+    return binary_labels
+
     raise NotImplementedError("Please implement the binarize function.")
 
 
@@ -36,6 +40,8 @@ def split_data(X: np.array, y: np.array, test_size: float=0.2,
 
     """
 
+    return train_test_split(X, y, test_size=test_size, random_state=random_state, shuffle=shuffle)
+
     raise NotImplementedError("Please implement the split_data function.")
 
 def standardize(X_train: np.array, X_test: np.array) -> Tuple[np.array, np.array]:
@@ -56,6 +62,14 @@ def standardize(X_train: np.array, X_test: np.array) -> Tuple[np.array, np.array
         Tuple[np.array, np.array]: The standardized training and testing data.
     """
 
+    X_train_mean = X_train.mean(axis=0)
+    X_train_std = X_train.std(axis=0)
+
+    X_train_standardized = (X_train - X_train_mean)/X_train_std
+    X_test_standardized = (X_test - X_train_mean)/X_train_std
+
+    return X_train_standardized, X_test_standardized
+
     raise NotImplementedError("Please implement the standardize function.")
 
 
@@ -69,6 +83,12 @@ def euclidean_distance(x1: np.array, x2: np.array) -> float:
     Returns:
         float: The Euclidean distance between the two points.
     """
+    
+    squared_diff = (x1 - x2) ** 2
+    sum_squared_diff = np.sum(squared_diff)
+    distance = np.sqrt(sum_squared_diff)
+
+    return distance
 
     raise NotImplementedError("Please implement the euclidean_distance function.")
 
@@ -83,6 +103,14 @@ def cosine_distance(x1: np.array, x2: np.array) -> float:
     Returns:
         float: The cosine distance between the two points.
     """
+
+    dot_product = np.dot(x1,x2)
+    norm1 = np.linalg.norm(x1)
+    norm2 = np.linalg.norm(x2)
+    cos_sim = dot_product/(norm1*norm2)
+    distance = 1 - cos_sim
+
+    return distance
 
     raise NotImplementedError("Please implement the cosine_distance function.")
     
@@ -108,17 +136,27 @@ def knn(x: np.array, y: np.array,
     for x_i, y_i in zip(x, y):
 
         # 1. Calculate the distance between the test sample and the training sample.
-        
+        if distance_method == 'euclidean_distance':
+            dist = euclidean_distance(sample, x_i)
+        else:
+            dist = cosine_distance(sample, x_i)
 
         # 2. Append the (distance, label) tuple to the distances list.
+            distances.append((dist, y_i))
 
-        raise NotImplementedError("Please implement the knn function distance loop.")
+        # raise NotImplementedError("Please implement the knn function distance loop.")
 
     # 3. Sort the tuples by distance (the first element of each tuple in distances).
+    distances.sort(key=lambda d: d[0])
 
     # 4. Get the unique labels and their counts. HINT: np.unique has a return_counts parameter.
+    k_nearest_labels = [label for _, label in distances[:k]]
+    unique_labels, counts = np.unique(k_nearest_labels, return_counts=True)
 
     # 5. Return the label with the most counts.
+    most_common_label = unique_labels[np.argmax(counts)]
+
+    return most_common_label
     
     raise NotImplementedError("Please implement the knn function.")
 
@@ -138,6 +176,10 @@ def linear_regression(X: np.array, y: np.array) -> np.array:
     X = np.hstack([np.ones((X.shape[0], 1)), X])
 
     # 1. Calculate the weights using the normal equation.
+    X_transpose = X.T
+    weights = (np.linalg.inv(X_transpose @ X)) @ X_transpose @ y
+
+    return weights
     
     raise NotImplementedError("Please implement the linear_regression function.")
 
@@ -155,6 +197,8 @@ def linear_regression_predict(X: np.array, weights: np.array) -> np.array:
     X = np.hstack([np.ones((X.shape[0], 1)), X])
 
     # 1. Calculate the predictions.
+    y_pred = X @ weights
+    return y_pred
 
     raise NotImplementedError("Please implement the linear_regression_predict function.")
     
@@ -171,6 +215,12 @@ def mean_squared_error(y_true: np.array, y_pred: np.array) -> float:
     Returns:
         float: The mean squared error.
     """
+
+    sum_of_squared_error = (y_pred - y_true)**2
+    mse = np.mean(sum_of_squared_error)
+
+    return mse
+
     raise NotImplementedError("Please implement the mean_squared_error function.")
 
 def logistic_regression_gradient_descent(X: np.array, y: np.array, 
@@ -205,20 +255,24 @@ def logistic_regression_gradient_descent(X: np.array, y: np.array,
     X = np.hstack([np.ones((X.shape[0], 1)), X])
 
     # 1. Initialize the weights with zeros. np.zeros is your friend here! 
-    weights = "replace_this_with_np.zeros()"
+    weights = np.zeros(X.shape[1])
 
     # For each iteration, update the weights.
     for _ in range(num_iterations):
 
         # 2. Calculate the predictions.
-        
+        z = np.dot(X, weights)
+        Y_pred = 1 / (1 + np.exp(-z))
 
         # 3. Calculate the gradient.
-    
+        gradient = np.dot(X.T, (Y_pred - y)) / y.size
 
         # 4. Update the weights -- make sure to use the learning rate!
+        weights -= learning_rate * gradient
 
-        raise NotImplementedError("Please implement the logistic_regression_gradient_descent function.")
+    return weights
+
+    raise NotImplementedError("Please implement the logistic_regression_gradient_descent function.")
     
 
 def logistic_regression_predict(X: np.array, weights: np.array) -> np.array:
@@ -236,5 +290,9 @@ def logistic_regression_predict(X: np.array, weights: np.array) -> np.array:
     X = np.hstack([np.ones((X.shape[0], 1)), X])
 
     # 1. Calculate the predictions using the provided weights.
+    z = np.dot(X, weights)
+    probabilities = 1 / (1 + np.exp(-z))
+
+    return probabilities
     
     raise NotImplementedError("Please implement the logistic_regression_predict function.")
