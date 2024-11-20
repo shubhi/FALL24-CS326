@@ -20,15 +20,15 @@ This schedule is tentative and may change as the course progresses. Click on lin
 | 6 | 10.10.2024 | [Data Preprocessing](https://drc-cs.github.io/FALL24-CS326/lectures/L06_data_preprocessing/#/) | | |
 | 7 | 10.15.2024 | [Supervised Machine Learning I <br> *KNN / Logistic Regression*](https://drc-cs.github.io/FALL24-CS326/lectures/L07_supervised_machine_learning_i/#/) | [H.02](https://github.com/drc-cs/FALL24-CS326/tree/main/homeworks/H02) | |
 | 8 | 10.17.2024 | [Supervised Machine Learning II <br>  *ROC-AUC / K-Fold / Multi-Class*](https://drc-cs.github.io/FALL24-CS326/lectures/L08_supervised_machine_learning_ii/#/) | | |
-| 9 | 10.22.2024 | Supervised Machine Learning III <br> *Decision Trees / Ensembles* | | |
-| 10 | 10.24.2024 | Unsupervised Machine Learning | [H.03](https://github.com/drc-cs/FALL24-CS326/tree/main/homeworks/H03) | |
-| 11 | 10.29.2024 | Recommendation Modeling | | |
+| 9 | 10.22.2024 | [Supervised Machine Learning III <br> *Decision Trees / Ensembles*](https://drc-cs.github.io/FALL24-CS326/lectures/L09_supervised_machine_learning_iii/#/) | | |
+| 10 | 10.24.2024 | [Unsupervised Machine Learning](https://drc-cs.github.io/FALL24-CS326/lectures/L10_unsupervised_machine_learning/#/) | [H.03](https://github.com/drc-cs/FALL24-CS326/tree/main/homeworks/H03) | |
+| 11 | 10.29.2024 | [Recommendation Modeling](https://drc-cs.github.io/FALL24-CS326/lectures/L11_recommendation_modeling/#/) | | |
 | 12 | 10.31.2024 | Project 1-on-1 | | P.02 |
-| 13 | 11.05.2024 | Project 1-on-1 | H.04 | |
-| 14 | 11.07.2024 | Time Series Analysis | | |
-| 15 | 11.12.2024 | Natural Language Processing <br> *Text Preprocessing* | | |
-| 16 | 11.14.2024 | Natural Language Processing <br> *Text Generation* | | |
-| 17 | 11.19.2024 | Quiz Review | H.05 | |
+| 13 | 11.05.2024 | Project 1-on-1 | | |
+| 14 | 11.07.2024 | [Time Series Analysis](https://drc-cs.github.io/FALL24-CS326/lectures/L14_time_series_analysis/#/) | | |
+| 15 | 11.12.2024 | [Natural Language Processing <br> *Classical NLP*](https://drc-cs.github.io/FALL24-CS326/lectures/L15_natural_language_processing_i/#/) | | |
+| 16 | 11.14.2024 | [Natural Language Processing <br> *Modern NLP*](https://drc-cs.github.io/FALL24-CS326/lectures/L16_natural_language_processing_ii/#/) | | |
+| 17 | 11.19.2024 | [Quiz Review](https://drc-cs.github.io/FALL24-CS326/lectures/L17_quiz_review/#/) | [H.04](https://github.com/drc-cs/FALL24-CS326/tree/main/homeworks/H04) | |
 | 18 | 11.21.2024 | Storytelling and Ethics | | |
 | 19 | 11.26.2024 | Quiz | | |
 | 20 | 12.03.2024 | Project Presentation | | P.03 - P.04 |
@@ -92,8 +92,7 @@ Homeworks are designed to reinforce the concepts covered in lecture. They will b
 | H.01 | 10.01.2024 | Hello, World! |
 | H.02 | 10.15.2024 | Exploratory Analysis & Statistical Inference |
 | H.03 | 10.24.2024 | Supervised Machine Learning |
-| H.04 | 11.05.2024 | Unsupervised Machine Learning |
-| H.05 | 11.19.2024 | Natural Language Processing |
+| H.04 | 11.19.2024 | Unsupervised Machine Learning & Time Series |
 
 ------
 
